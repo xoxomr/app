@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Redirecting...</title>
@@ -15,15 +15,43 @@
       background-color: #f8f8f8;
       text-align: center;
     }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #e0e0e0;
+      border-top: 4px solid #1877f2;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     .message {
-      font-size: 24px;
+      font-size: 22px;
       color: #333;
     }
+
+    .sub {
+      font-size: 14px;
+      color: #777;
+      margin-top: 6px;
+    }
+
     .link {
-      display: block;
       margin-top: 15px;
-      font-size: 18px;
-      color: #007bff;
+      font-size: 14px;
+      color: #1877f2;
       text-decoration: none;
     }
   </style>
@@ -72,17 +100,20 @@
       }
     }
 
-    // WAIT 1.2 seconds so Facebook Pixel can fire
+    // Wait so Meta Pixel can fire
     setTimeout(redirectUser, 1200);
   </script>
 
 </head>
 
 <body>
-  <div>
-    <div class="message">Redirecting...</div>
+  <div class="container">
+    <div class="spinner"></div>
+    <div class="message">Redirecting you…</div>
+    <div class="sub">Please wait a moment</div>
+
     <a class="link" href="https://www.brightleeenterprise.com/">
-      If you're not redirected, click here
+      If nothing happens, tap here
     </a>
   </div>
 </body>
