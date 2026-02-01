@@ -3,26 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecting...</title>
-  <script>
-    function isIOS() {
-      return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-             (navigator.userAgent.includes("Macintosh") && 'ontouchend' in document);
-    }
 
-    window.onload = function() {
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      text-align: center;
+    }
+    .message {
+      font-size: 24px;
+      color: #333;
+    }
+    .link {
+      display: block;
+      margin-top: 15px;
+      font-size: 18px;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+
+  <!-- META (Facebook) PIXEL -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;
+  n.push=n;
+  n.loaded=!0;
+  n.version='2.0';
+  n.queue=[];
+  t=b.createElement(e);t.async=!0;
+  t.src=v;
+  s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)
+  }(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1651382399359855');
+  fbq('track', 'PageView');
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1651382399359855&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- END META PIXEL -->
+
+  <!-- REDIRECT SCRIPT -->
+  <script>
+    function redirectUser() {
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
       if (/android/i.test(userAgent)) {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.wanzy.driver";
-      } else if (isIOS()) {
-        window.location.href = "https://apps.apple.com/app/wanzy-partner/id6739208986";
-      } else {
-        window.location.href = "https://wanzyapp.com";
+        window.location.href = "https://play.google.com/store/apps/details?id=com.app.birthdayOwl";
       }
-    };
+      else if (/iPad|iPhone|iPod/.test(userAgent) ||
+               (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+        window.location.href = "https://apps.apple.com/ca/app/birthday-owl/id6757141079";
+      }
+      else {
+        window.location.href = "https://www.brightleeenterprise.com/";
+      }
+    }
+
+    // WAIT 1.2 seconds so Facebook Pixel can fire
+    setTimeout(redirectUser, 1200);
   </script>
+
 </head>
+
 <body>
-  <p>Redirecting to the driver app store page...</p>
+  <div>
+    <div class="message">Redirecting...</div>
+    <a class="link" href="https://www.brightleeenterprise.com/">
+      If you're not redirected, click here
+    </a>
+  </div>
 </body>
 </html>
