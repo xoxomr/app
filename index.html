@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
+  <!-- IMPORTANT: Responsive for all devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Redirecting...</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       display: flex;
       justify-content: center;
@@ -20,6 +28,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 20px;
     }
 
     .spinner {
@@ -29,7 +38,7 @@
       border-top: 4px solid #1877f2;
       border-radius: 50%;
       animation: spin 1s linear infinite;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
     }
 
     @keyframes spin {
@@ -49,32 +58,36 @@
     }
 
     .link {
-      margin-top: 15px;
+      margin-top: 16px;
       font-size: 14px;
       color: #1877f2;
       text-decoration: none;
+    }
+
+    .link:hover {
+      text-decoration: underline;
     }
   </style>
 
   <!-- META (Facebook) PIXEL -->
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;
-  n.push=n;
-  n.loaded=!0;
-  n.version='2.0';
-  n.queue=[];
-  t=b.createElement(e);t.async=!0;
-  t.src=v;
-  s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)
-  }(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;
+    n.push=n;
+    n.loaded=!0;
+    n.version='2.0';
+    n.queue=[];
+    t=b.createElement(e);t.async=!0;
+    t.src=v;
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)
+    }(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
 
-  fbq('init', '1651382399359855');
-  fbq('track', 'PageView');
+    fbq('init', '1651382399359855');
+    fbq('track', 'PageView');
   </script>
 
   <noscript>
@@ -89,18 +102,20 @@
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
       if (/android/i.test(userAgent)) {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.app.birthdayOwl";
+        window.location.href =
+          "https://play.google.com/store/apps/details?id=com.app.birthdayOwl";
       }
       else if (/iPad|iPhone|iPod/.test(userAgent) ||
                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
-        window.location.href = "https://apps.apple.com/ca/app/birthday-owl/id6757141079";
+        window.location.href =
+          "https://apps.apple.com/ca/app/birthday-owl/id6757141079";
       }
       else {
         window.location.href = "https://www.brightleeenterprise.com/";
       }
     }
 
-    // Wait so Meta Pixel can fire
+    /* Delay so Meta Pixel fires before redirect */
     setTimeout(redirectUser, 1200);
   </script>
 
